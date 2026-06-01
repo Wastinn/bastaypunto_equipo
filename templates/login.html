@@ -166,60 +166,20 @@
     <h1>Basta <em>&</em> Punto</h1>
     <p class="desc">Ingresa tus credenciales para administrar el catálogo y los servicios.</p>
 
-    <form id="formAdminLogin">
-      <input type="email" id="email" placeholder="Correo de administrador" required autocomplete="email" />
-      <input type="password" id="password" placeholder="Contraseña segura" required autocomplete="current-password" />
-      
-      <p class="error-msg" id="errorMsg">Credenciales incorrectas. Intenta de nuevo.</p>
-      
-      <button type="submit" class="send-btn" id="btnSubmit">Acceder al Panel →</button>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <p style="color: #b04068; font-weight: bold; margin-bottom: 1rem;">{{ messages[0] }}</p>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('login') }}" method="POST">
+      <input type="email" name="correo" placeholder="Correo de administrador" required autocomplete="email" />
+      <input type="password" name="contrasena" placeholder="Contraseña segura" required autocomplete="current-password" />
+      <button type="submit" class="send-btn">Acceder al Panel →</button>
     </form>
 
     <a href='\' class="back-link">← Volver a la vitrina pública</a>
   </div>
-
-  <script>
-    document.getElementById('formAdminLogin').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const btn = document.getElementById('btnSubmit');
-      const errorMsg = document.getElementById('errorMsg');
-      
-      // Estado de carga
-      btn.innerText = "Verificando...";
-      btn.disabled = true;
-      errorMsg.style.display = 'none';
-      //modificado por mi 
-      try {
-        const response = await fetch('panel.html', { 
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          localStorage.setItem('adminToken', data.token);
-          // Redirección al panel
-          window.location.href = 'panel_admin.html';
-        } else {
-          // Mostrar error y restablecer botón
-          errorMsg.innerText = data.error || 'Error al iniciar sesión.';
-          errorMsg.style.display = 'block';
-          btn.innerText = "Acceder al Panel →";
-          btn.disabled = false;
-        }
-      } catch (error) {
-        errorMsg.innerText = 'No hay conexión con el servidor.';
-        errorMsg.style.display = 'block';
-        btn.innerText = "Acceder al Panel →";
-        btn.disabled = false;
-      }
-    });
-  </script>
 
 </body>
 </html>

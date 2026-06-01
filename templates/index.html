@@ -27,85 +27,28 @@
   </div>
 
   <div class="gallery">
-
-    <!-- Tarjeta 1 -->
-    <div class="card">
-      <div class="card-body">
-        <span class="card-label" style="background:#fdf0c2;color:#a07830;">Sastrería</span>
-        <div class="card-title">Vestido sastre clásico</div>
-        <p class="card-desc">Confeccionado con patrón personalizado y pinzas cuidadosamente trabajadas para un ajuste impecable en cintura y busto.</p>
-        <span class="material-tag">
-          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#c9a357" stroke-width="1.5"/></svg>
-          Lino belga · Entretela termoadhesiva
-        </span>
-      </div>
-    </div>
-
-    <!-- Tarjeta 2 -->
-    <div class="card">
-      <div class="card-body">
-        <span class="card-label" style="background:#d5ede4;color:#3d7a60;">Bordado</span>
-        <div class="card-title">Blusa con bordado floral</div>
-        <p class="card-desc">Bordado a mano con hilo de seda sobre tela base, técnica de punto satén. Cuello redondo con pinzas delanteras y manga larga.</p>
-        <span class="material-tag">
-          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#3d7a60" stroke-width="1.5"/></svg>
-          Algodón pima · Hilo de seda DMC
-        </span>
-      </div>
-    </div>
-
-    <!-- Tarjeta 3 -->
-    <div class="card">
-      <div class="card-body">
-        <span class="card-label" style="background:#e3daf5;color:#6a4ab0;">Alta costura</span>
-        <div class="card-title">Falda plisada a medida</div>
-        <p class="card-desc">Pliegues uniformes cosidos a máquina con doble hilvanado. Cierre invisible lateral y pretina forrada en el mismo tejido principal.</p>
-        <span class="material-tag">
-          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#7a5cb8" stroke-width="1.5"/></svg>
-          Gasa de seda · Forro acetato
-        </span>
-      </div>
-    </div>
-
-    <!-- Tarjeta 4 -->
-    <div class="card">
-      <div class="card-body">
-        <span class="card-label" style="background:#fde4d0;color:#b05530;">Confección</span>
-        <div class="card-title">Chaqueta blazer estructurada</div>
-        <p class="card-desc">Hombros con almohadilla liviana, solapa sastre y forro interior cosido a mano. Botones recubiertos en el mismo tejido exterior.</p>
-        <span class="material-tag">
-          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#b05530" stroke-width="1.5"/></svg>
-          Tweed italiano · Forro de batista
-        </span>
-      </div>
-    </div>
-
-    <!-- Tarjeta 5 -->
-    <div class="card">
-      <div class="card-body">
-        <span class="card-label" style="background:#d6eaf5;color:#2e6090;">Sastrería</span>
-        <div class="card-title">Pantalón de vestir a medida</div>
-        <p class="card-desc">Corte recto con pliegue italiano delantero, bolsillos laterales en sesgo y basta enrollada con pespunte visible a contraste.</p>
-        <span class="material-tag">
-          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#2e6090" stroke-width="1.5"/></svg>
-          Gabardina lana fría · Hilo poliéster
-        </span>
-      </div>
-    </div>
-
-    <!-- Tarjeta 6 -->
-    <div class="card">
-      <div class="card-body">
-        <span class="card-label" style="background:#fbeaf0;color:#b04068;">Noche</span>
-        <div class="card-title">Vestido de gala drapeado</div>
-        <p class="card-desc">Drapeado asimétrico cosido en húmedo para mantener la caída. Tirantes regulables y boning interior en el corpiño para soporte sin ballenas.</p>
-        <span class="material-tag">
-          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#b04068" stroke-width="1.5"/></svg>
-          Crepé georgette · Satin duchesse
-        </span>
-      </div>
-    </div>
-
+    {% if not lista_servicios %}
+        <p style="text-align:center; width:100%; grid-column: 1 / -1; color: var(--text-muted);">
+            Aún no hay servicios disponibles en el catálogo.
+        </p>
+    {% else %}
+        {% for srv in lista_servicios %}
+            <div class="card">
+                {{ dibujos_svg[loop.index0 % 6] | safe }}
+                
+                <div class="card-body">
+                    <span class="card-label" style="background:#fdf0c2;color:#a07830;">
+                        {{ srv.Tiempo_Estimado }}
+                    </span>
+                    <div class="card-title">{{ srv.Name }}</div>
+                    <p class="card-desc">{{ srv.Descripción }}</p>
+                    <span class="material-tag">
+                        Precio base: ${{ "{:,.0f}".format(srv.Precio_Base).replace(',', '.') }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
   </div>
 </section>
 
@@ -147,14 +90,21 @@
     <button class="close-btn" onclick="closeModalDirect()">×</button>
     <h3>Escríbenos</h3>
     <p>Cuéntanos tu proyecto y te respondemos pronto.</p>
-    <input type="text" placeholder="Tu nombre" id="inputNombre"/>
-    <input type="email" placeholder="Tu correo electrónico" id="inputEmail"/>
-    <textarea placeholder="¿Qué prenda tienes en mente? Cuéntanos…" id="inputMsg"></textarea>
-    <button class="send-btn" onclick="sendMsg()">Enviar mensaje →</button>
+    <form method="POST" action="{{ url_for('index') }}">
+      <input type="text" name="nombre" placeholder="Tu nombre" required/>
+      <input type="email" name="email" placeholder="Tu correo electrónico" required/>
+      <textarea name="mensaje" placeholder="¿Qué prenda tienes en mente? Cuéntanos…" required></textarea>
+      <button type="submit" name="enviar_mensaje" class="send-btn">Enviar mensaje →</button>
+    </form>
+
+    {% if mensaje_exito %}
+      <p style="color: #6aab8e; font-weight: bold; margin-top: 15px;">{{ mensaje_exito }}</p>
+    {% endif %}
   </div>
 </div>
 
 <script>
+  
   function openModal() {
     document.getElementById('modalBg').classList.add('open');
   }
@@ -166,27 +116,16 @@
   function closeModalDirect() {
     document.getElementById('modalBg').classList.remove('open');
   }
-  function sendMsg() {
-    const nombre = document.getElementById('inputNombre').value.trim();
-    const email = document.getElementById('inputEmail').value.trim();
-    const msg = document.getElementById('inputMsg').value.trim();
-    if (!nombre || !email || !msg) {
-      alert('Por favor completa todos los campos 🧵');
-      return;
-    }
-    document.getElementById('modalBg').classList.remove('open');
-    alert('¡Gracias, ' + nombre + '! Tu mensaje fue enviado. Te escribimos pronto ✂️');
-    document.getElementById('inputNombre').value = '';
-    document.getElementById('inputEmail').value = '';
-    document.getElementById('inputMsg').value = '';
-  }
 
-  // smooth scroll
   document.querySelectorAll('nav a').forEach(a => {
     a.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      const href = a.getAttribute('href');
+      
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 </script>
@@ -196,6 +135,6 @@
    target="_blank" 
    rel="noopener noreferrer" 
    aria-label="Contactar por WhatsApp">
-  <img src="static/wtsp.webp" alt="WhatsApp">
+  <img src="{{ url_for('static', filename='wtsp.webp') }}" alt="WhatsApp">
 </a>
 {% endblock %}
