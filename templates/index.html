@@ -1,0 +1,201 @@
+{% extends './layout.html'%}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<!-- HEADER -->
+<header>
+  <div class="header-badge">Costura artesanal · Santiago</div>
+  <h1>Basta <em>&</em> Punto</h1>
+  <p class="tagline">Confecciones a medida con amor, aguja e hilo</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#vitrina">Vitrina</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+  <a href="\cursos">Cursos</a>   <!-- INTENTAR REDIRECCIONAR A LA URL /CURSOS -->
+</nav>
+
+<!-- GALLERY -->
+<section id="vitrina">
+  <div class="section-title">
+    <h2>Nuestras Creaciones</h2>
+    <p>Cada pieza, confeccionada con materiales seleccionados y dedicación artesanal</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="gallery">
+
+    <!-- Tarjeta 1 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-label" style="background:#fdf0c2;color:#a07830;">Sastrería</span>
+        <div class="card-title">Vestido sastre clásico</div>
+        <p class="card-desc">Confeccionado con patrón personalizado y pinzas cuidadosamente trabajadas para un ajuste impecable en cintura y busto.</p>
+        <span class="material-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#c9a357" stroke-width="1.5"/></svg>
+          Lino belga · Entretela termoadhesiva
+        </span>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-label" style="background:#d5ede4;color:#3d7a60;">Bordado</span>
+        <div class="card-title">Blusa con bordado floral</div>
+        <p class="card-desc">Bordado a mano con hilo de seda sobre tela base, técnica de punto satén. Cuello redondo con pinzas delanteras y manga larga.</p>
+        <span class="material-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#3d7a60" stroke-width="1.5"/></svg>
+          Algodón pima · Hilo de seda DMC
+        </span>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-label" style="background:#e3daf5;color:#6a4ab0;">Alta costura</span>
+        <div class="card-title">Falda plisada a medida</div>
+        <p class="card-desc">Pliegues uniformes cosidos a máquina con doble hilvanado. Cierre invisible lateral y pretina forrada en el mismo tejido principal.</p>
+        <span class="material-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#7a5cb8" stroke-width="1.5"/></svg>
+          Gasa de seda · Forro acetato
+        </span>
+      </div>
+    </div>
+
+    <!-- Tarjeta 4 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-label" style="background:#fde4d0;color:#b05530;">Confección</span>
+        <div class="card-title">Chaqueta blazer estructurada</div>
+        <p class="card-desc">Hombros con almohadilla liviana, solapa sastre y forro interior cosido a mano. Botones recubiertos en el mismo tejido exterior.</p>
+        <span class="material-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#b05530" stroke-width="1.5"/></svg>
+          Tweed italiano · Forro de batista
+        </span>
+      </div>
+    </div>
+
+    <!-- Tarjeta 5 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-label" style="background:#d6eaf5;color:#2e6090;">Sastrería</span>
+        <div class="card-title">Pantalón de vestir a medida</div>
+        <p class="card-desc">Corte recto con pliegue italiano delantero, bolsillos laterales en sesgo y basta enrollada con pespunte visible a contraste.</p>
+        <span class="material-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#2e6090" stroke-width="1.5"/></svg>
+          Gabardina lana fría · Hilo poliéster
+        </span>
+      </div>
+    </div>
+
+    <!-- Tarjeta 6 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-label" style="background:#fbeaf0;color:#b04068;">Noche</span>
+        <div class="card-title">Vestido de gala drapeado</div>
+        <p class="card-desc">Drapeado asimétrico cosido en húmedo para mantener la caída. Tirantes regulables y boning interior en el corpiño para soporte sin ballenas.</p>
+        <span class="material-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="#b04068" stroke-width="1.5"/></svg>
+          Crepé georgette · Satin duchesse
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros" class="about">
+  <h2>Nuestra historia</h2>
+  <p>Durante mi etapa en la educación media descubrí mi pasión por las costuras y confecciones a través de distintos talleres, comenzando así un camino que he seguido perfeccionando con cursos y aprendizajes a lo largo de los años. Desde los años 80 hasta hoy, continúo dedicándome a este oficio con el mismo amor y compromiso, entregando en cada arreglo y creación dedicación, cariño y la pasión por hacer lo que más amo.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <h2>Conversemos</h2>
+  <p>¿Tienes una idea en mente? Cuéntanos y la hacemos realidad juntas.</p>
+  <button class="btn-contact" onclick="openModal()">✉ Escríbenos</button>
+  <div class="contact-info">
+    <div class="contact-chip">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 4l5.5 4 5.5-4M2 3h11a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#2a5c46" stroke-width="1.3" stroke-linecap="round"/></svg>
+      bastayPunto@correo.cl
+    </div>
+    <div class="contact-chip">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M13 10.5c0 .4-.1.8-.3 1.1-.2.3-.5.6-.8.8-.5.3-1 .4-1.5.4C8.5 13 5.7 10.3 4 7.6 3.2 6.3 2.8 5 2.8 3.7c0-.5.1-1 .4-1.4.3-.5.7-.8 1.2-1 .2-.1.4-.1.6-.1.2 0 .4.1.5.2L7 3.9c.1.2.2.4.2.6s-.1.4-.2.5L6.4 5.7c-.1.1-.1.3 0 .4C7 7.2 8 8.3 9.3 9c.1.1.3.1.4 0l.7-.6c.2-.1.4-.2.6-.2.2 0 .4.1.5.2l1.4 1.4c.1.2.1.4.1.7z" stroke="#2a5c46" stroke-width="1.3"/></svg>
+      +56 9 1234 5678
+    </div>
+    <div class="contact-chip">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 8.5a2 2 0 100-4 2 2 0 000 4z" stroke="#2a5c46" stroke-width="1.3"/><path d="M7.5 1.5C5 1.5 3 3.5 3 6c0 3.5 4.5 7.5 4.5 7.5s4.5-4 4.5-7.5c0-2.5-2-4.5-4.5-4.5z" stroke="#2a5c46" stroke-width="1.3"/></svg>
+      Santiago, Chile
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Basta y Punto · Costura artesanal a medida · Hecho con ♥ e hilo</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModalDirect()">×</button>
+    <h3>Escríbenos</h3>
+    <p>Cuéntanos tu proyecto y te respondemos pronto.</p>
+    <input type="text" placeholder="Tu nombre" id="inputNombre"/>
+    <input type="email" placeholder="Tu correo electrónico" id="inputEmail"/>
+    <textarea placeholder="¿Qué prenda tienes en mente? Cuéntanos…" id="inputMsg"></textarea>
+    <button class="send-btn" onclick="sendMsg()">Enviar mensaje →</button>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('modalBg').classList.add('open');
+  }
+  function closeModal(e) {
+    if (e.target === document.getElementById('modalBg')) {
+      document.getElementById('modalBg').classList.remove('open');
+    }
+  }
+  function closeModalDirect() {
+    document.getElementById('modalBg').classList.remove('open');
+  }
+  function sendMsg() {
+    const nombre = document.getElementById('inputNombre').value.trim();
+    const email = document.getElementById('inputEmail').value.trim();
+    const msg = document.getElementById('inputMsg').value.trim();
+    if (!nombre || !email || !msg) {
+      alert('Por favor completa todos los campos 🧵');
+      return;
+    }
+    document.getElementById('modalBg').classList.remove('open');
+    alert('¡Gracias, ' + nombre + '! Tu mensaje fue enviado. Te escribimos pronto ✂️');
+    document.getElementById('inputNombre').value = '';
+    document.getElementById('inputEmail').value = '';
+    document.getElementById('inputMsg').value = '';
+  }
+
+  // smooth scroll
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+<!-- Burbuja Flotante de Contacto -->
+<a href="https://wa.me/56994861904" 
+   class="burbuja-contacto" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Contactar por WhatsApp">
+  <img src="static/wtsp.webp" alt="WhatsApp">
+</a>
+{% endblock %}
