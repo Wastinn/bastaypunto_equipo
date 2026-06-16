@@ -15,7 +15,7 @@
   <a href="#vitrina">Vitrina</a>
   <a href="#nosotros">Nosotros</a>
   <a href="#contacto">Contacto</a>
-  <a href="\cursos">Cursos</a>   <!-- INTENTAR REDIRECCIONAR A LA URL /CURSOS -->
+  <a href="cursos.html">Cursos</a>   <!-- INTENTAR REDIRECCIONAR A LA URL /CURSOS -->
 </nav>
 
 <!-- GALLERY -->
@@ -51,15 +51,22 @@
     {% endif %}
   </div>
 </section>
-
 <!-- ABOUT -->
 <section id="nosotros" class="about">
   <h2>Nuestra historia</h2>
   <p>Durante mi etapa en la educación media descubrí mi pasión por las costuras y confecciones a través de distintos talleres, comenzando así un camino que he seguido perfeccionando con cursos y aprendizajes a lo largo de los años. Desde los años 80 hasta hoy, continúo dedicándome a este oficio con el mismo amor y compromiso, entregando en cada arreglo y creación dedicación, cariño y la pasión por hacer lo que más amo.</p>
 </section>
-
-<!-- CONTACT -->
 <section id="contacto">
+        <div>
+          <iframe
+            class="mapa-embed"
+            title="Ubicación de Basta &amp; Punto en mapa"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1034.6626700601107!2d-70.68032840555233!3d-33.739142115426866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9663268fc77a88a7%3A0xb39e42550adba127!2sEscuela%20De%20Futbol%20Colo%20Colo%20Alto%20Jahuel!5e1!3m2!1ses-419!2scl!4v1779929705453!5m2!1ses-419!2scl"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
   <h2>Conversemos</h2>
   <p>¿Tienes una idea en mente? Cuéntanos y la hacemos realidad juntas.</p>
   <button class="btn-contact" onclick="openModal()">✉ Escríbenos</button>
@@ -78,12 +85,10 @@
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <p>© 2025 Basta y Punto · Costura artesanal a medida · Hecho con ♥ e hilo</p>
 </footer>
-
 <!-- MODAL -->
 <div class="modal-bg" id="modalBg" onclick="closeModal(event)">
   <div class="modal">

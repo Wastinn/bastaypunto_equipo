@@ -5,159 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Acceso Administrador – Basta y Punto</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --rose:    #f9d5e0;
-    --rose-dark: #c9879f;
-    --text:    #3a2d35;
-    --text-muted: #7a6570;
-    --white:   #fffaf9;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--rose);
-    color: var(--text);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Círculos decorativos del index original */
-  body::before {
-    content: '';
-    position: absolute;
-    top: -10vh; left: -10vw;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-    z-index: 0;
-  }
-  body::after {
-    content: '';
-    position: absolute;
-    bottom: -15vh; right: -5vw;
-    width: 350px; height: 350px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.18);
-    z-index: 0;
-  }
-
-  /* Tarjeta central basada en tu modal */
-  .login-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 3rem 2.5rem;
-    max-width: 420px;
-    width: 90%;
-    box-shadow: 0 12px 35px rgba(90,40,60,0.15);
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-
-  .header-badge {
-    display: inline-block;
-    background: var(--rose);
-    color: #5c2d40;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-  }
-
-  .login-card h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: #5c2d40;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
-  .login-card h1 em {
-    font-style: italic;
-    color: var(--rose-dark);
-  }
-  
-  .login-card p.desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Inputs basados en tu diseño original */
-  .login-card input {
-    width: 100%;
-    padding: 0.85rem 1.2rem;
-    border: 1.5px solid #e8dde0;
-    border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    color: var(--text);
-    margin-bottom: 1.2rem;
-    outline: none;
-    transition: border-color 0.2s;
-    background: #fffaf9;
-  }
-  .login-card input:focus {
-    border-color: var(--rose-dark);
-  }
-
-  /* Botón de enviar */
-  .send-btn {
-    width: 100%;
-    background: var(--rose-dark);
-    color: white;
-    border: none;
-    padding: 0.95rem;
-    border-radius: 100px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: 0.5rem;
-  }
-  .send-btn:hover {
-    background: #b0738a;
-  }
-  .send-btn:active {
-    transform: scale(0.98);
-  }
-  .send-btn:disabled {
-    background: #e8dde0;
-    cursor: not-allowed;
-  }
-
-  .back-link {
-    display: inline-block;
-    margin-top: 1.8rem;
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-    font-weight: 500;
-  }
-  .back-link:hover {
-    color: var(--rose-dark);
-  }
-  
-  .error-msg {
-    color: #b04068;
-    font-size: 0.85rem;
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
-    display: none;
-  }
-</style>
+<link rel="stylesheet" href={{url_for('static', filename='css/login.css')}}>
 </head>
 <body>
 
@@ -168,7 +16,7 @@
 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-        <p style="color: #b04068; font-weight: bold; margin-bottom: 1rem;">{{ messages[0] }}</p>
+        <p class="error-msg" style="display:block;">{{ messages[0] }}</p>
       {% endif %}
     {% endwith %}
 
@@ -178,7 +26,7 @@
       <button type="submit" class="send-btn">Acceder al Panel →</button>
     </form>
 
-    <a href='\' class="back-link">← Volver a la vitrina pública</a>
+    <a href="/" class="back-link">← Volver a la vitrina pública</a>
   </div>
 
 </body>

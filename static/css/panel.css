@@ -1,0 +1,181 @@
+:root {
+  --gold:      #D9B036;
+  --gold-warm: #D9A648;
+  --gold-dark: #8C703B;
+  --cream:     #F2EBE9;
+  --black:     #0D0D0D;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--black);
+  color: var(--black);
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  background: var(--cream);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+  border: 1px solid var(--gold);
+  margin-bottom: 30px;
+}
+
+h1, h2 {
+  color: var(--black);
+  margin-top: 0;
+}
+
+h2 {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ── FORMULARIOS ── */
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+@media(max-width: 600px) {
+  .form-group { grid-template-columns: 1fr; }
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--gold-warm);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  background: #fff;
+  color: var(--black);
+  box-sizing: border-box;
+}
+input:focus, textarea:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+/* ── BOTONES ── */
+.btn {
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover {
+  background: var(--gold-dark);
+  color: var(--cream);
+}
+
+.logout-btn {
+  background: var(--black);
+  color: var(--gold);
+  padding: 8px 18px;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  float: right;
+  border: 1px solid var(--gold);
+  transition: background 0.2s, color 0.2s;
+}
+.logout-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ── TABLA ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--gold-warm);
+}
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e8ddd4;
+}
+th {
+  background-color: var(--black);
+  color: var(--gold);
+  font-weight: 500;
+}
+tr:hover {
+  background-color: #f7f0e8;
+}
+
+.empty-msg {
+  color: var(--gold-dark);
+  text-align: center;
+  padding: 20px;
+}
+
+/* ── BANDEJA DE MENSAJES ── */
+.mensaje-item {
+  background: #fff;
+  border: 1.5px solid #e8ddd4;
+  border-left: 5px solid var(--gold);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.mensaje-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.mensaje-autor {
+  font-weight: bold;
+  color: var(--black);
+}
+.mensaje-fecha {
+  color: var(--gold-dark);
+  font-size: 0.85rem;
+}
+.mensaje-texto {
+  line-height: 1.5;
+  font-size: 0.95rem;
+  background: var(--cream);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px dashed var(--gold-warm);
+  color: var(--black);
+}
+
+.btn-borrar {
+  background: none;
+  border: none;
+  color: var(--gold-dark);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.2s;
+}
+.btn-borrar:hover {
+  color: var(--black);
+}
